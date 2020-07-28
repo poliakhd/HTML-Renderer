@@ -15,9 +15,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
-using HtmlRenderer.Core.Core;
-using HtmlRenderer.Core.Core.Entities;
-using HtmlRenderer.Core.Core.Utils;
+using HtmlRenderer.NetCore.Core;
+using HtmlRenderer.NetCore.Core.Entities;
+using HtmlRenderer.NetCore.Core.Utils;
 using TheArtOfDev.HtmlRenderer.WinForms.Adapters;
 using TheArtOfDev.HtmlRenderer.WinForms.Utilities;
 

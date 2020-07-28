@@ -13,7 +13,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using HtmlRenderer.Core.Core.Entities;
+using HtmlRenderer.NetCore.Core.Entities;
 
 namespace TheArtOfDev.HtmlRenderer.Demo.Common
 {

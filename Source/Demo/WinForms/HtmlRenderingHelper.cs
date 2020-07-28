@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Threading;
-using HtmlRenderer.Core.Core.Entities;
+using HtmlRenderer.NetCore.Core.Entities;
 using PdfSharpCore.Drawing;
 using TheArtOfDev.HtmlRenderer.Demo.Common;
 

@@ -17,8 +17,8 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using HtmlRenderer.Core.Adapters;
-using HtmlRenderer.Core.Adapters.Entities;
+using HtmlRenderer.NetCore.Adapters;
+using HtmlRenderer.NetCore.Adapters.Entities;
 using TheArtOfDev.HtmlRenderer.WPF.Utilities;
 using Microsoft.Win32;
 

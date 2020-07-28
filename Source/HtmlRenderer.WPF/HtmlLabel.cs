@@ -14,8 +14,8 @@ using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
-using HtmlRenderer.Core.Adapters.Entities;
-using HtmlRenderer.Core.Core;
+using HtmlRenderer.NetCore.Adapters.Entities;
+using HtmlRenderer.NetCore.Core;
 using TheArtOfDev.HtmlRenderer.WPF.Adapters;
 
 namespace TheArtOfDev.HtmlRenderer.WPF

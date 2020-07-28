@@ -12,7 +12,7 @@
 
 using System.Windows;
 using System.Windows.Media;
-using HtmlRenderer.Core.Adapters;
+using HtmlRenderer.NetCore.Adapters;
 
 namespace TheArtOfDev.HtmlRenderer.WPF.Adapters
 {

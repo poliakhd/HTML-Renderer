@@ -104,7 +104,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\HtmlRenderer.Core\HtmlRenderer.NetCore.csproj">
+    <ProjectReference Include="..\..\HtmlRenderer.NetCore\HtmlRenderer.NetCore.csproj">
       <Project>{BC6755DD-930B-4DB7-B99F-D58F886B1716}</Project>
       <Name>HtmlRenderer.NetCore</Name>
     </ProjectReference>

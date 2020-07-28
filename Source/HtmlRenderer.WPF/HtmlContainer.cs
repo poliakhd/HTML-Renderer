@@ -16,10 +16,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using HtmlRenderer.Core.Adapters.Entities;
-using HtmlRenderer.Core.Core;
-using HtmlRenderer.Core.Core.Entities;
-using HtmlRenderer.Core.Core.Utils;
+using HtmlRenderer.NetCore.Adapters.Entities;
+using HtmlRenderer.NetCore.Core;
+using HtmlRenderer.NetCore.Core.Entities;
+using HtmlRenderer.NetCore.Core.Utils;
 using TheArtOfDev.HtmlRenderer.WPF.Adapters;
 using TheArtOfDev.HtmlRenderer.WPF.Utilities;
 

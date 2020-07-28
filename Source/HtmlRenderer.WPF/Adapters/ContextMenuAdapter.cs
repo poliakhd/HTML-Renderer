@@ -13,9 +13,9 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using HtmlRenderer.Core.Adapters;
-using HtmlRenderer.Core.Adapters.Entities;
-using HtmlRenderer.Core.Core.Utils;
+using HtmlRenderer.NetCore.Adapters;
+using HtmlRenderer.NetCore.Adapters.Entities;
+using HtmlRenderer.NetCore.Core.Utils;
 using TheArtOfDev.HtmlRenderer.WPF.Utilities;
 
 namespace TheArtOfDev.HtmlRenderer.WPF.Adapters

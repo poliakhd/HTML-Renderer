@@ -164,7 +164,7 @@
     <EmbeddedResource Include="TestSamples\35.Breaking pages 2 - Tables.htm" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\HtmlRenderer.Core\HtmlRenderer.NetCore.csproj">
+    <ProjectReference Include="..\..\HtmlRenderer.NetCore\HtmlRenderer.NetCore.csproj">
       <Project>{bc6755dd-930b-4db7-b99f-d58f886b1716}</Project>
       <Name>HtmlRenderer.NetCore</Name>
     </ProjectReference>

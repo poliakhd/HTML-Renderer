@@ -15,10 +15,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Windows.Forms;
-using HtmlRenderer.Core.Adapters.Entities;
-using HtmlRenderer.Core.Core;
-using HtmlRenderer.Core.Core.Entities;
-using HtmlRenderer.Core.Core.Utils;
+using HtmlRenderer.NetCore.Adapters.Entities;
+using HtmlRenderer.NetCore.Core;
+using HtmlRenderer.NetCore.Core.Entities;
+using HtmlRenderer.NetCore.Core.Utils;
 using TheArtOfDev.HtmlRenderer.WinForms.Adapters;
 using TheArtOfDev.HtmlRenderer.WinForms.Utilities;
 

@@ -167,11 +167,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\HtmlRenderer.Core.PdfSharp\HtmlRenderer.NetCore.PdfSharp.csproj">
+    <ProjectReference Include="..\..\HtmlRenderer.NetCore.PdfSharp\HtmlRenderer.NetCore.PdfSharp.csproj">
       <Project>{56e59a1a-3664-4201-bf6c-9f48c8dd3969}</Project>
       <Name>HtmlRenderer.NetCore.PdfSharp</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\HtmlRenderer.Core\HtmlRenderer.NetCore.csproj">
+    <ProjectReference Include="..\..\HtmlRenderer.NetCore\HtmlRenderer.NetCore.csproj">
       <Project>{bc6755dd-930b-4db7-b99f-d58f886b1716}</Project>
       <Name>HtmlRenderer.NetCore</Name>
     </ProjectReference>
