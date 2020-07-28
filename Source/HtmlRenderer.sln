@@ -22,9 +22,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AA47D1
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlRenderer.Core", "HtmlRenderer.Core\HtmlRenderer.Core.csproj", "{BC6755DD-930B-4DB7-B99F-D58F886B1716}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlRenderer.NetCore", "HtmlRenderer.Core\HtmlRenderer.NetCore.csproj", "{BC6755DD-930B-4DB7-B99F-D58F886B1716}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlRenderer.Core.PdfSharp", "HtmlRenderer.Core.PdfSharp\HtmlRenderer.Core.PdfSharp.csproj", "{56E59A1A-3664-4201-BF6C-9F48C8DD3969}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlRenderer.NetCore.PdfSharp", "HtmlRenderer.Core.PdfSharp\HtmlRenderer.NetCore.PdfSharp.csproj", "{56E59A1A-3664-4201-BF6C-9F48C8DD3969}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

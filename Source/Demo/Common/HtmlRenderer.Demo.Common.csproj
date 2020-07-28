@@ -164,9 +164,9 @@
     <EmbeddedResource Include="TestSamples\35.Breaking pages 2 - Tables.htm" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\HtmlRenderer.Core\HtmlRenderer.Core.csproj">
+    <ProjectReference Include="..\..\HtmlRenderer.Core\HtmlRenderer.NetCore.csproj">
       <Project>{bc6755dd-930b-4db7-b99f-d58f886b1716}</Project>
-      <Name>HtmlRenderer.Core</Name>
+      <Name>HtmlRenderer.NetCore</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,7 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <RepositoryUrl>https://github.com/poliakhd/HTML-Renderer.git</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -9,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HtmlRenderer.Core\HtmlRenderer.Core.csproj" />
+    <ProjectReference Include="..\HtmlRenderer.Core\HtmlRenderer.NetCore.csproj" />
   </ItemGroup>
 
 </Project>

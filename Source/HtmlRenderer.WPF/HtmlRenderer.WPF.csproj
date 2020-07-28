@@ -42,15 +42,15 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="System.Xaml"/>
+    <Reference Include="System.Xaml" />
   </ItemGroup>
   <ItemGroup>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HtmlRenderer.Core\HtmlRenderer.Core.csproj">
+    <ProjectReference Include="..\HtmlRenderer.Core\HtmlRenderer.NetCore.csproj">
       <Project>{bc6755dd-930b-4db7-b99f-d58f886b1716}</Project>
-      <Name>HtmlRenderer.Core</Name>
+      <Name>HtmlRenderer.NetCore</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
