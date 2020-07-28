@@ -21,14 +21,15 @@ jobs:
 
       - name: Pack HtmlRenderer.Core preview nuget package
         run: |
-          cd HtmlRenderer.Core
+          cd Source/HtmlRenderer.Core
           dotnet pack -c Release -p:Version=1.0.0-preview-$GITHUB_RUN_NUMBER
           
       - name: HtmlRenderer.Core.PdfSharp preview nuget package
         run: |
-          cd HtmlRenderer.Core.PdfSharp
+          cd Source/HtmlRenderer.Core.PdfSharp
           dotnet pack -c Release -p:Version=1.0.0-preview-$GITHUB_RUN_NUMBER
           
       - name: Push package to nuget
         run: |
+          cd Source
           dotnet nuget push **/*.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json
