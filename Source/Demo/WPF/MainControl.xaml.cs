@@ -19,7 +19,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
-using TheArtOfDev.HtmlRenderer.Core.Entities;
+using HtmlRenderer.Core.Core.Entities;
 using TheArtOfDev.HtmlRenderer.Demo.Common;
 using TheArtOfDev.HtmlRenderer.WPF;
 

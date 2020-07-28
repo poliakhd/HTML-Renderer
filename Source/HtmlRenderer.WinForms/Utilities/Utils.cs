@@ -13,7 +13,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using TheArtOfDev.HtmlRenderer.Adapters.Entities;
+using HtmlRenderer.Core.Adapters.Entities;
 
 namespace TheArtOfDev.HtmlRenderer.WinForms.Utilities
 {

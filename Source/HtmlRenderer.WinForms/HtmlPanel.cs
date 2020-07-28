@@ -16,9 +16,9 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Windows.Forms;
-using TheArtOfDev.HtmlRenderer.Core;
-using TheArtOfDev.HtmlRenderer.Core.Entities;
-using TheArtOfDev.HtmlRenderer.Core.Utils;
+using HtmlRenderer.Core.Core;
+using HtmlRenderer.Core.Core.Entities;
+using HtmlRenderer.Core.Core.Utils;
 using TheArtOfDev.HtmlRenderer.WinForms.Utilities;
 
 namespace TheArtOfDev.HtmlRenderer.WinForms

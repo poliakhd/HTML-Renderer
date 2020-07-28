@@ -11,8 +11,8 @@
 // "The Art of War"
 
 using System.Windows.Media;
-using TheArtOfDev.HtmlRenderer.Adapters;
-using TheArtOfDev.HtmlRenderer.Adapters.Entities;
+using HtmlRenderer.Core.Adapters;
+using HtmlRenderer.Core.Adapters.Entities;
 
 namespace TheArtOfDev.HtmlRenderer.WPF.Adapters
 {

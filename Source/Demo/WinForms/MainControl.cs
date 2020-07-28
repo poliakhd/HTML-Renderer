@@ -16,7 +16,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using TheArtOfDev.HtmlRenderer.Core.Entities;
+using HtmlRenderer.Core.Core.Entities;
 using TheArtOfDev.HtmlRenderer.Demo.Common;
 using Timer = System.Threading.Timer;
 

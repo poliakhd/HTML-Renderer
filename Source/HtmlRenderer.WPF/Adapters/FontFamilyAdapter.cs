@@ -12,7 +12,7 @@
 
 using System.Windows.Markup;
 using System.Windows.Media;
-using TheArtOfDev.HtmlRenderer.Adapters;
+using HtmlRenderer.Core.Adapters;
 
 namespace TheArtOfDev.HtmlRenderer.WPF.Adapters
 {

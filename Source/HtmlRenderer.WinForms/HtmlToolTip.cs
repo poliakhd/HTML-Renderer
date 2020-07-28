@@ -15,8 +15,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Windows.Forms;
-using TheArtOfDev.HtmlRenderer.Core;
-using TheArtOfDev.HtmlRenderer.Core.Entities;
+using HtmlRenderer.Core.Core;
+using HtmlRenderer.Core.Core.Entities;
 using TheArtOfDev.HtmlRenderer.WinForms.Utilities;
 
 namespace TheArtOfDev.HtmlRenderer.WinForms

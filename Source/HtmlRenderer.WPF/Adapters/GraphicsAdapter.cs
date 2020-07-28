@@ -15,9 +15,9 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using TheArtOfDev.HtmlRenderer.Adapters;
-using TheArtOfDev.HtmlRenderer.Adapters.Entities;
-using TheArtOfDev.HtmlRenderer.Core.Utils;
+using HtmlRenderer.Core.Adapters;
+using HtmlRenderer.Core.Adapters.Entities;
+using HtmlRenderer.Core.Core.Utils;
 using TheArtOfDev.HtmlRenderer.WPF.Utilities;
 
 namespace TheArtOfDev.HtmlRenderer.WPF.Adapters

@@ -10,13 +10,13 @@
 // - Sun Tsu,
 // "The Art of War"
 
-using PdfSharp.Drawing;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Threading;
-using TheArtOfDev.HtmlRenderer.Core.Entities;
+using HtmlRenderer.Core.Core.Entities;
+using PdfSharpCore.Drawing;
 using TheArtOfDev.HtmlRenderer.Demo.Common;
 
 namespace TheArtOfDev.HtmlRenderer.Demo.WinForms
@@ -88,7 +88,7 @@ namespace TheArtOfDev.HtmlRenderer.Demo.WinForms
             using (var ms = new MemoryStream())
             {
                 img.Save(ms, img.RawFormat);
-                xImg = img != null ? XImage.FromStream(ms) : null;
+                xImg = img != null ? XImage.FromStream(()=>ms) : null;
             }
 
             return xImg;
@@ -123,7 +123,7 @@ namespace TheArtOfDev.HtmlRenderer.Demo.WinForms
                 using (var ms = new MemoryStream())
                 {
                     img.Save(ms, img.RawFormat);
-                    xImg = img != null ? XImage.FromStream(ms) : null;
+                    xImg = img != null ? XImage.FromStream(()=>ms) : null;
                 }
             }
 
