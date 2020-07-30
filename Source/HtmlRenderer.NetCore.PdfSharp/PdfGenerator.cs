@@ -44,6 +44,13 @@ namespace HtmlRenderer.NetCore.PdfSharp
             PdfSharpAdapter.Instance.AddFontFamilyMapping(fromFamily, toFamily);
         }
 
+        public static void AddFontFamily(string fontFamily)
+        {
+            ArgChecker.AssertArgNotNullOrEmpty(fontFamily, "fromFamily");
+
+            PdfSharpAdapter.Instance.AddFontFamily(new FontFamilyAdapter(new XFontFamily(fontFamily)));
+        }
+
         /// <summary>
         /// Parse the given stylesheet to <see cref="CssData"/> object.<br/>
         /// If <paramref name="combineWithDefault"/> is true the parsed css blocks are added to the 
