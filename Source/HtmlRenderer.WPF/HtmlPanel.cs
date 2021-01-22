@@ -15,8 +15,8 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
-using TheArtOfDev.HtmlRenderer.Core.Entities;
-using TheArtOfDev.HtmlRenderer.Core.Utils;
+using HtmlRenderer.NetCore.Core.Entities;
+using HtmlRenderer.NetCore.Core.Utils;
 
 namespace TheArtOfDev.HtmlRenderer.WPF
 {

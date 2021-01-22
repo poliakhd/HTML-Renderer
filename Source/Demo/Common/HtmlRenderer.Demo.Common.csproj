@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TheArtOfDev.HtmlRenderer.Demo.Common</RootNamespace>
     <AssemblyName>HtmlRendererDemoCommon</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -147,12 +149,6 @@
     <EmbeddedResource Include="Resources\stopwatch.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\HtmlRenderer\HtmlRenderer.csproj">
-      <Project>{FE611685-391F-4E3E-B27E-D3150E51E49B}</Project>
-      <Name>HtmlRenderer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\image32.png" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +162,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TestSamples\35.Breaking pages 2 - Tables.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\HtmlRenderer.NetCore\HtmlRenderer.NetCore.csproj">
+      <Project>{bc6755dd-930b-4db7-b99f-d58f886b1716}</Project>
+      <Name>HtmlRenderer.NetCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -12,8 +12,8 @@
 
 using System;
 using System.Drawing.Drawing2D;
-using TheArtOfDev.HtmlRenderer.Adapters;
-using TheArtOfDev.HtmlRenderer.Adapters.Entities;
+using HtmlRenderer.NetCore.Adapters;
+using HtmlRenderer.NetCore.Adapters.Entities;
 
 namespace TheArtOfDev.HtmlRenderer.WinForms.Adapters
 {

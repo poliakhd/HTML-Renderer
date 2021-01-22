@@ -17,8 +17,8 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Reflection;
 using System.Windows.Forms;
-using TheArtOfDev.HtmlRenderer.Core;
-using TheArtOfDev.HtmlRenderer.Core.Entities;
+using HtmlRenderer.NetCore.Core;
+using HtmlRenderer.NetCore.Core.Entities;
 using TheArtOfDev.HtmlRenderer.Demo.Common;
 using TheArtOfDev.HtmlRenderer.WinForms;
 

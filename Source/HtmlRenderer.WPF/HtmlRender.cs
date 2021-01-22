@@ -14,9 +14,9 @@ using System;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using TheArtOfDev.HtmlRenderer.Core;
-using TheArtOfDev.HtmlRenderer.Core.Entities;
-using TheArtOfDev.HtmlRenderer.Core.Utils;
+using HtmlRenderer.NetCore.Core;
+using HtmlRenderer.NetCore.Core.Entities;
+using HtmlRenderer.NetCore.Core.Utils;
 using TheArtOfDev.HtmlRenderer.WPF.Adapters;
 using TheArtOfDev.HtmlRenderer.WPF.Utilities;
 

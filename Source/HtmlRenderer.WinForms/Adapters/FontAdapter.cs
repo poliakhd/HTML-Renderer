@@ -12,7 +12,7 @@
 
 using System;
 using System.Drawing;
-using TheArtOfDev.HtmlRenderer.Adapters;
+using HtmlRenderer.NetCore.Adapters;
 
 namespace TheArtOfDev.HtmlRenderer.WinForms.Adapters
 {

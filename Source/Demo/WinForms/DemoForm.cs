@@ -16,10 +16,10 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
 using System.Windows.Forms;
+using HtmlRenderer.NetCore.PdfSharp;
+using PdfSharpCore;
 using TheArtOfDev.HtmlRenderer.Demo.Common;
-using TheArtOfDev.HtmlRenderer.PdfSharp;
 using TheArtOfDev.HtmlRenderer.WinForms;
-using PdfSharp;
 
 namespace TheArtOfDev.HtmlRenderer.Demo.WinForms
 {
@@ -144,7 +144,7 @@ namespace TheArtOfDev.HtmlRenderer.Demo.WinForms
             config.PageSize = PageSize.A4;
             config.SetMargins(20);
 
-            var doc = PdfGenerator.GeneratePdf(_mainControl.GetHtml(), config, null, DemoUtils.OnStylesheetLoad, HtmlRenderingHelper.OnImageLoadPdfSharp);
+            var doc = PdfGenerator.GeneratePdf(_mainControl.GetHtml(), config, null, null, DemoUtils.OnStylesheetLoad, HtmlRenderingHelper.OnImageLoadPdfSharp);
             var tmpFile = Path.GetTempFileName();
             tmpFile = Path.GetFileNameWithoutExtension(tmpFile) + ".pdf";
             doc.Save(tmpFile);

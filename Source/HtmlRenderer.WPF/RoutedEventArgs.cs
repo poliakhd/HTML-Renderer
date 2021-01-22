@@ -11,7 +11,7 @@
 // "The Art of War"
 
 using System.Windows;
-using TheArtOfDev.HtmlRenderer.Core.Utils;
+using HtmlRenderer.NetCore.Core.Utils;
 
 namespace TheArtOfDev.HtmlRenderer.WPF
 {

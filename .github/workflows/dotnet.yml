@@ -1,0 +1,35 @@
+name: NuGet Package Preview Generation
+
+on: pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.0.100
+          
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Pack HtmlRenderer.Core preview nuget package
+        run: |
+          cd Source/HtmlRenderer.NetCore
+          dotnet pack -c Release -p:Version=1.0.0-preview-$GITHUB_RUN_NUMBER
+          
+      - name: HtmlRenderer.Core.PdfSharp preview nuget package
+        run: |
+          cd Source/HtmlRenderer.NetCore.PdfSharp
+          dotnet pack -c Release -p:Version=1.0.0-preview-$GITHUB_RUN_NUMBER
+          
+      - name: Push package to nuget
+        run: |
+          cd Source
+          dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}

@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TheArtOfDev.HtmlRenderer.Demo.WinForms</RootNamespace>
     <AssemblyName>HtmlRendererWinFormsDemo</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -63,17 +63,34 @@
     <ApplicationIcon>html.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PdfSharp, Version=1.50.4000.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PDFsharp.1.50.4000-beta3b\lib\net20\PdfSharp.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="PdfSharpCore">
+      <HintPath>C:\Users\pdani\.nuget\packages\pdfsharpcore\1.2.1\lib\netstandard2.0\PdfSharpCore.dll</HintPath>
     </Reference>
-    <Reference Include="PdfSharp.Charting, Version=1.50.4000.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PDFsharp.1.50.4000-beta3b\lib\net20\PdfSharp.Charting.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="SixLabors.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SixLabors.Core.1.0.0-beta0008\lib\netstandard2.0\SixLabors.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SixLabors.Fonts.1.0.0-beta0013\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.ImageSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SixLabors.ImageSharp.1.0.0-rc0003\lib\net472\SixLabors.ImageSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -150,17 +167,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\HtmlRenderer.PdfSharp\HtmlRenderer.PdfSharp.csproj">
-      <Project>{ca249f5d-9285-40a6-b217-5889ef79fd7e}</Project>
-      <Name>HtmlRenderer.PdfSharp</Name>
+    <ProjectReference Include="..\..\HtmlRenderer.NetCore.PdfSharp\HtmlRenderer.NetCore.PdfSharp.csproj">
+      <Project>{56e59a1a-3664-4201-bf6c-9f48c8dd3969}</Project>
+      <Name>HtmlRenderer.NetCore.PdfSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HtmlRenderer.NetCore\HtmlRenderer.NetCore.csproj">
+      <Project>{bc6755dd-930b-4db7-b99f-d58f886b1716}</Project>
+      <Name>HtmlRenderer.NetCore</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\HtmlRenderer.WinForms\HtmlRenderer.WinForms.csproj">
       <Project>{1b058920-24b4-4140-8ae7-c8c6c38ca52d}</Project>
       <Name>HtmlRenderer.WinForms</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\HtmlRenderer\HtmlRenderer.csproj">
-      <Project>{fe611685-391f-4e3e-b27e-d3150e51e49b}</Project>
-      <Name>HtmlRenderer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Common\HtmlRenderer.Demo.Common.csproj">
       <Project>{2390b71f-9400-47f4-b23a-7f2649c87d35}</Project>
@@ -171,6 +188,7 @@
     <EmbeddedResource Include="html.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

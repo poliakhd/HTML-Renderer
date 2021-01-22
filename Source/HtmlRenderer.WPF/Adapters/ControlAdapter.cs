@@ -13,9 +13,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using TheArtOfDev.HtmlRenderer.Adapters;
-using TheArtOfDev.HtmlRenderer.Adapters.Entities;
-using TheArtOfDev.HtmlRenderer.Core.Utils;
+using HtmlRenderer.NetCore.Adapters;
+using HtmlRenderer.NetCore.Adapters.Entities;
+using HtmlRenderer.NetCore.Core.Utils;
 using TheArtOfDev.HtmlRenderer.WPF.Utilities;
 
 namespace TheArtOfDev.HtmlRenderer.WPF.Adapters
