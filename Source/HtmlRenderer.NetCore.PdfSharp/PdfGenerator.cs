@@ -18,6 +18,7 @@ using HtmlRenderer.NetCore.PdfSharp.Adapters;
 using PdfSharpCore;
 using PdfSharpCore.Drawing;
 using PdfSharpCore.Pdf;
+using SixLabors.ImageSharp;
 
 namespace HtmlRenderer.NetCore.PdfSharp
 {
@@ -72,15 +73,16 @@ namespace HtmlRenderer.NetCore.PdfSharp
         /// <param name="pageSize">the page size to use for each page in the generated pdf </param>
         /// <param name="margin">the margin to use between the HTML and the edges of each page</param>
         /// <param name="cssData">optional: the style to use for html rendering (default - use W3 default style)</param>
+        /// <param name="pdfPaginationConfig">optional: pagination config</param>
         /// <param name="stylesheetLoad">optional: can be used to overwrite stylesheet resolution logic</param>
         /// <param name="imageLoad">optional: can be used to overwrite image resolution logic</param>
         /// <returns>the generated image of the html</returns>
-        public static PdfDocument GeneratePdf(string html, PageSize pageSize, int margin = 20, CssData cssData = null, EventHandler<HtmlStylesheetLoadEventArgs> stylesheetLoad = null, EventHandler<HtmlImageLoadEventArgs> imageLoad = null)
+        public static PdfDocument GeneratePdf(string html, PageSize pageSize, int margin = 20, CssData cssData = null, PdfPaginationConfig pdfPaginationConfig = null, EventHandler<HtmlStylesheetLoadEventArgs> stylesheetLoad = null, EventHandler<HtmlImageLoadEventArgs> imageLoad = null)
         {
             var config = new PdfGenerateConfig();
             config.PageSize = pageSize;
             config.SetMargins(margin);
-            return GeneratePdf(html, config, cssData, stylesheetLoad, imageLoad);
+            return GeneratePdf(html, config, cssData, pdfPaginationConfig, stylesheetLoad, imageLoad);
         }
 
         /// <summary>
@@ -89,16 +91,17 @@ namespace HtmlRenderer.NetCore.PdfSharp
         /// <param name="html">HTML source to create PDF from</param>
         /// <param name="config">the configuration to use for the PDF generation (page size/page orientation/margins/etc.)</param>
         /// <param name="cssData">optional: the style to use for html rendering (default - use W3 default style)</param>
+        /// <param name="pdfPaginationConfig">optional: pagination config</param>
         /// <param name="stylesheetLoad">optional: can be used to overwrite stylesheet resolution logic</param>
         /// <param name="imageLoad">optional: can be used to overwrite image resolution logic</param>
         /// <returns>the generated image of the html</returns>
-        public static PdfDocument GeneratePdf(string html, PdfGenerateConfig config, CssData cssData = null, EventHandler<HtmlStylesheetLoadEventArgs> stylesheetLoad = null, EventHandler<HtmlImageLoadEventArgs> imageLoad = null)
+        public static PdfDocument GeneratePdf(string html, PdfGenerateConfig config, CssData cssData = null, PdfPaginationConfig pdfPaginationConfig = null, EventHandler<HtmlStylesheetLoadEventArgs> stylesheetLoad = null, EventHandler<HtmlImageLoadEventArgs> imageLoad = null)
         {
             // create PDF document to render the HTML into
             var document = new PdfDocument();
 
             // add rendered PDF pages to document
-            AddPdfPages(document, html, config, cssData, stylesheetLoad, imageLoad);
+            AddPdfPages(document, html, config, cssData, pdfPaginationConfig, stylesheetLoad, imageLoad);
 
             return document;
         }
@@ -111,15 +114,16 @@ namespace HtmlRenderer.NetCore.PdfSharp
         /// <param name="pageSize">the page size to use for each page in the generated pdf </param>
         /// <param name="margin">the margin to use between the HTML and the edges of each page</param>
         /// <param name="cssData">optional: the style to use for html rendering (default - use W3 default style)</param>
+        /// <param name="pdfPaginationConfig">optional: pagination config</param>
         /// <param name="stylesheetLoad">optional: can be used to overwrite stylesheet resolution logic</param>
         /// <param name="imageLoad">optional: can be used to overwrite image resolution logic</param>
         /// <returns>the generated image of the html</returns>
-        public static void AddPdfPages(PdfDocument document, string html, PageSize pageSize, int margin = 20, CssData cssData = null, EventHandler<HtmlStylesheetLoadEventArgs> stylesheetLoad = null, EventHandler<HtmlImageLoadEventArgs> imageLoad = null)
+        public static void AddPdfPages(PdfDocument document, string html, PageSize pageSize, int margin = 20, CssData cssData = null, PdfPaginationConfig pdfPaginationConfig = null, EventHandler<HtmlStylesheetLoadEventArgs> stylesheetLoad = null, EventHandler<HtmlImageLoadEventArgs> imageLoad = null)
         {
             var config = new PdfGenerateConfig();
             config.PageSize = pageSize;
             config.SetMargins(margin);
-            AddPdfPages(document, html, config, cssData, stylesheetLoad, imageLoad);
+            AddPdfPages(document, html, config, cssData, pdfPaginationConfig, stylesheetLoad, imageLoad);
         }
 
         /// <summary>
@@ -129,10 +133,11 @@ namespace HtmlRenderer.NetCore.PdfSharp
         /// <param name="html">HTML source to create PDF from</param>
         /// <param name="config">the configuration to use for the PDF generation (page size/page orientation/margins/etc.)</param>
         /// <param name="cssData">optional: the style to use for html rendering (default - use W3 default style)</param>
+        /// <param name="pdfPaginationConfig">optional: pagination config</param>
         /// <param name="stylesheetLoad">optional: can be used to overwrite stylesheet resolution logic</param>
         /// <param name="imageLoad">optional: can be used to overwrite image resolution logic</param>
         /// <returns>the generated image of the html</returns>
-        public static void AddPdfPages(PdfDocument document, string html, PdfGenerateConfig config, CssData cssData = null, EventHandler<HtmlStylesheetLoadEventArgs> stylesheetLoad = null, EventHandler<HtmlImageLoadEventArgs> imageLoad = null)
+        public static void AddPdfPages(PdfDocument document, string html, PdfGenerateConfig config, CssData cssData = null, PdfPaginationConfig pdfPaginationConfig = null, EventHandler<HtmlStylesheetLoadEventArgs> stylesheetLoad = null, EventHandler<HtmlImageLoadEventArgs> imageLoad = null)
         {
             XSize orgPageSize;
             // get the size of each page to layout the HTML in
@@ -173,6 +178,7 @@ namespace HtmlRenderer.NetCore.PdfSharp
                         container.PerformLayout(measure);
                     }
 
+
                     // while there is un-rendered HTML, create another PDF page and render with proper offset for the next page
                     double scrollOffset = 0;
                     while (scrollOffset > -container.ActualSize.Height)
@@ -188,15 +194,25 @@ namespace HtmlRenderer.NetCore.PdfSharp
 
                             container.ScrollOffset = new XPoint(0, scrollOffset);
                             container.PerformPaint(g);
+                            
+                            
                         }
                         scrollOffset -= pageSize.Height;
                     }
 
                     // add web links and anchors
                     HandleLinks(document, container, orgPageSize, pageSize);
+
+
+                    if (pdfPaginationConfig != null)
+                    {
+                        // add pagination mark on pages
+                        HandlePaginationMarks(document, pdfPaginationConfig);
+                    }
                 }
             }
         }
+
 
 
 
@@ -234,6 +250,26 @@ namespace HtmlRenderer.NetCore.PdfSharp
                         // create link to URL
                         document.Pages[i].AddWebLink(new PdfRectangle(xRect), link.Href);
                     }
+                }
+            }
+        }
+
+        private static void HandlePaginationMarks(PdfDocument document, PdfPaginationConfig pdfPaginationConfig)
+        {
+            var pageIndex = 1;
+            var pageCount = document.PageCount;
+
+            foreach (var page in document.Pages)
+            {
+                using (var g = XGraphics.FromPdfPage(page))
+                {
+                    g.DrawString(
+                        string.Format(pdfPaginationConfig.Format, pageIndex, pageCount), 
+                        new XFont(pdfPaginationConfig.FontName, pdfPaginationConfig.FontSize),
+                        new XSolidBrush(XColor.FromKnownColor(pdfPaginationConfig.Color)),
+                        new XPoint(pdfPaginationConfig.X, pdfPaginationConfig.Y));
+                    
+                    pageIndex++;
                 }
             }
         }

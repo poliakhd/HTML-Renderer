@@ -144,7 +144,7 @@ namespace TheArtOfDev.HtmlRenderer.Demo.WinForms
             config.PageSize = PageSize.A4;
             config.SetMargins(20);
 
-            var doc = PdfGenerator.GeneratePdf(_mainControl.GetHtml(), config, null, DemoUtils.OnStylesheetLoad, HtmlRenderingHelper.OnImageLoadPdfSharp);
+            var doc = PdfGenerator.GeneratePdf(_mainControl.GetHtml(), config, null, null, DemoUtils.OnStylesheetLoad, HtmlRenderingHelper.OnImageLoadPdfSharp);
             var tmpFile = Path.GetTempFileName();
             tmpFile = Path.GetFileNameWithoutExtension(tmpFile) + ".pdf";
             doc.Save(tmpFile);
