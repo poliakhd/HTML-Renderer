@@ -259,6 +259,11 @@ namespace HtmlRenderer.NetCore.PdfSharp
             var pageIndex = 1;
             var pageCount = document.PageCount;
 
+            if(!GetColorByHex(pdfPaginationConfig.Color, 0, pdfPaginationConfig.Color.Length, out var fontColor))
+            {   
+                fontColor = XColor.FromKnownColor(XKnownColor.Black);
+            }
+
             foreach (var page in document.Pages)
             {
                 using (var g = XGraphics.FromPdfPage(page))
@@ -266,12 +271,58 @@ namespace HtmlRenderer.NetCore.PdfSharp
                     g.DrawString(
                         string.Format(pdfPaginationConfig.Format, pageIndex, pageCount), 
                         new XFont(pdfPaginationConfig.FontName, pdfPaginationConfig.FontSize),
-                        new XSolidBrush(XColor.FromKnownColor(pdfPaginationConfig.Color)),
+                        new XSolidBrush(fontColor),
                         new XPoint(pdfPaginationConfig.X, pdfPaginationConfig.Y));
                     
                     pageIndex++;
                 }
             }
+        }
+
+        private static bool GetColorByHex(string str, int idx, int length, out XColor color)
+        {
+            int r = -1;
+            int g = -1;
+            int b = -1;
+            if (length == 7)
+            {
+                r = ParseHexInt(str, idx + 1, 2);
+                g = ParseHexInt(str, idx + 3, 2);
+                b = ParseHexInt(str, idx + 5, 2);
+            }
+            else if (length == 4)
+            {
+                r = ParseHexInt(str, idx + 1, 1);
+                r = r * 16 + r;
+                g = ParseHexInt(str, idx + 2, 1);
+                g = g * 16 + g;
+                b = ParseHexInt(str, idx + 3, 1);
+                b = b * 16 + b;
+            }
+            if (r > -1 && g > -1 && b > -1)
+            {
+                color = XColor.FromArgb(r, g, b);
+                return true;
+            }
+            color = XColor.Empty;
+            return false;
+        }
+
+        private static int ParseHexInt(string str, int idx, int length)
+        {
+            if (length < 1)
+                return -1;
+
+            int num = 0;
+            for (int i = 0; i < length; i++)
+            {
+                int c = str[idx + i];
+                if (!(c >= 48 && c <= 57) && !(c >= 65 && c <= 70) && !(c >= 97 && c <= 102))
+                    return -1;
+
+                num = num * 16 + (c <= 57 ? c - 48 : (10 + c - (c <= 70 ? 65 : 97)));
+            }
+            return num;
         }
 
         #endregion

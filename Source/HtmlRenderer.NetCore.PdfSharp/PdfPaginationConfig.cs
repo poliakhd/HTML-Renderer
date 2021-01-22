@@ -8,7 +8,7 @@ namespace HtmlRenderer.NetCore.PdfSharp
 
         public double FontSize { get; set; } = 12;
 
-        public XKnownColor Color { get; set; } = XKnownColor.Black;
+        public string Color { get; set; } = "#000000";
 
         public double X { get; set; } = 10;
 
