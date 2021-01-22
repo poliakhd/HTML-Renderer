@@ -15,5 +15,7 @@ namespace HtmlRenderer.NetCore.PdfSharp
         public double Y { get; set; } = 10;
 
         public string Format { get; set; } = "Page {0} of {1}";
+
+        public PdfPaginationTitleSkipType TitleSkip { get; set; } = PdfPaginationTitleSkipType.None;
     }
 }

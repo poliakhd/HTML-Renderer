@@ -259,22 +259,33 @@ namespace HtmlRenderer.NetCore.PdfSharp
             var pageIndex = 1;
             var pageCount = document.PageCount;
 
-            if(!GetColorByHex(pdfPaginationConfig.Color, 0, pdfPaginationConfig.Color.Length, out var fontColor))
-            {   
+            if (!GetColorByHex(pdfPaginationConfig.Color, 0, pdfPaginationConfig.Color.Length, out var fontColor))
+            {
                 fontColor = XColor.FromKnownColor(XKnownColor.Black);
             }
 
-            foreach (var page in document.Pages)
+            var i = 0;
+
+            if (pdfPaginationConfig.TitleSkip == PdfPaginationTitleSkipType.Shift)
             {
-                using (var g = XGraphics.FromPdfPage(page))
+                i = 1;
+                pageCount = pageCount - 1;
+            }
+            
+            for (; i < document.Pages.Count; i++, pageIndex++)
+            {
+                if (pdfPaginationConfig.TitleSkip == PdfPaginationTitleSkipType.Hide && i == 0)
+                {
+                    continue;
+                }
+
+                using (var g = XGraphics.FromPdfPage(document.Pages[i]))
                 {
                     g.DrawString(
-                        string.Format(pdfPaginationConfig.Format, pageIndex, pageCount), 
+                        string.Format(pdfPaginationConfig.Format, pageIndex, pageCount),
                         new XFont(pdfPaginationConfig.FontName, pdfPaginationConfig.FontSize),
                         new XSolidBrush(fontColor),
                         new XPoint(pdfPaginationConfig.X, pdfPaginationConfig.Y));
-                    
-                    pageIndex++;
                 }
             }
         }
